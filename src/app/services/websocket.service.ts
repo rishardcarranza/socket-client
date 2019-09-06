@@ -7,6 +7,7 @@ import { Socket } from 'ngx-socket-io';
 export class WebsocketService {
 
   public socketStatus = false;
+
   constructor(private socket: Socket) {
     this.checkStatus();
   }
@@ -24,4 +25,10 @@ export class WebsocketService {
     });
   }
 
+  emit(evento: string, payload?: any, callback?: Function) {
+
+    console.log('Emitiendo mensaje...')
+
+    this.socket.emit(evento, payload, callback);
+  }
 }
