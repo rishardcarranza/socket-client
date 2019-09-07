@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WebsocketService } from '../../services/websocket.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-mensajes',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MensajesComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario;
+
+  constructor(public wsService: WebsocketService) { }
 
   ngOnInit() {
+    this.usuario = this.wsService.usuario;
   }
 
 }
